@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 
 function Ihahire (){
@@ -22,7 +23,7 @@ function Ihahire (){
                         <a className="nav-link">CART</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link">CART</a>
+                        <Link to="/login" className="nav-link">Login | Register</Link>
                     </li>
                 </div>
                 
