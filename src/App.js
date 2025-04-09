@@ -9,6 +9,9 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/js/dist/carousel.js';
 import 'bootstrap/js/dist/modal.js';
 import 'sweetalert2/dist/sweetalert2.js';
+import Home from "./components/home.jsx";
+import Categories from "./components/categories.jsx";
+
 
 function App () {
   return (
@@ -16,6 +19,8 @@ function App () {
       <Routes>
         <Route path='/' element={<Indexx/>} />
         <Route path='/login' element={<Login/>}/>
+        <Route path='/home' element={<Home/>}/>
+        <Route path='/categories' element={<Categories/>}/>
 
         <Route path='*' element={<NotFound/>}/>
 
