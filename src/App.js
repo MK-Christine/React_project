@@ -14,7 +14,12 @@ import Categories from "./components/categories.jsx";
 import Product from "./components/product.jsx";
 import NewProduct from "./components/newProduct.jsx";
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 function App () {
+
+  
+  
   return (
     <BrowserRouter>
       <Routes>

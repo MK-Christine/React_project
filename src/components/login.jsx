@@ -16,7 +16,10 @@ function Login(){
         .then(res => res.text())
 
         .then(data => {
-            if(data == 1){
+            if((JSON.parse(data).status) == 1){
+
+                localStorage.setItem('user', data);
+                
                 window.location.replace('/home');
             }
             else{
