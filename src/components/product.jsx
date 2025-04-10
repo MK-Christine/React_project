@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import { useEffect, useState } from 'react';
+import NewProduct from './newProduct';
 
-function Categories(){
+function Product(){
 
-    const [categories, setCategories] = useState([]);
+    const [product, setProduct] = useState([]);
 
     function getData(){
-        fetch('http://localhost/ihahire/categories.php')
+        fetch('http://localhost/ihahire/myproducts.php') 
         .then((res) => res.text()) 
-        .then(data => {
-            setCategories((JSON.parse(data)))
+        .then(Array => {
+            setProduct((JSON.parse(Array)))
         })
     }
     
@@ -79,28 +80,46 @@ function Categories(){
                     </nav>
 
                
-                    <div className="container mt-4">
-                        <h1>Categories </h1>
+                    <div className="container mt-5">
+                        <div className="d-inline">
+                            <h3 className="d-inline">MY PRODUCTS </h3>
+                            <Link className="btn btn-primary float-end" to="/newproduct" >New</Link>
+                        </div>
                       
-                        <table className="table">
-                            <tr>
-                                <th>ID</th>
-                                <th>NAME</th>
-                                <th>CREATED DATE</th>
-                            </tr>
-                            
-                            {
-                                categories.map((cat, index) => (
-                                        <tr key={index}>
-                                            <td>{cat.id}</td>
-                                            <td>{cat.name}</td>
-                                            <td>{cat.date}</td>
-                                        </tr>
-                                    ))
-                                }
-                            
-                        </table>
-                   
+                        <div className="mt-4 card card-body">
+
+                            <table className="table table-condensed">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>PROD_NAME</th>
+                                    <th>CATEGORY</th>
+                                    <th>OWNER</th>
+                                    <th>PRICE</th>
+                                    <th>description</th>
+                                    <th>ACTION</th>
+                                </tr>
+                                
+                                {
+                                    product.map((cat, index) => (
+                                            <tr key={index}>
+                                                <td>{cat.id}</td>
+                                                <td>{cat.prod_name}</td>
+                                                <td>{cat.category}</td>
+                                                <td>{cat.owner}</td>
+                                                <td>{cat.price}</td>
+                                                <td>{cat.description}</td>
+                                                <td>
+                                                    <button className="btn btn-outline-success btn-sm me-1">EDIT</button> 
+                                                    <button className="btn btn-outline-danger btn-sm">DELETE</button>
+                                                </td>
+
+                                            </tr>
+                                        ))
+                                    }
+                                
+                            </table>
+                    
+                        </div>
                         
 
                     
@@ -112,4 +131,4 @@ function Categories(){
 );
 }
 
-export default Categories;
+export default Product;

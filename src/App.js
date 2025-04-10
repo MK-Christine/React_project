@@ -11,7 +11,8 @@ import 'bootstrap/js/dist/modal.js';
 import 'sweetalert2/dist/sweetalert2.js';
 import Home from "./components/home.jsx";
 import Categories from "./components/categories.jsx";
-
+import Product from "./components/product.jsx";
+import NewProduct from "./components/newProduct.jsx";
 
 function App () {
   return (
@@ -21,7 +22,8 @@ function App () {
         <Route path='/login' element={<Login/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/categories' element={<Categories/>}/>
-
+        <Route path='/product' element={<Product/>}/>
+        <Route path='/newproduct' element={<NewProduct/>}/>
         <Route path='*' element={<NotFound/>}/>
 
         

@@ -2,23 +2,20 @@ import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import { useEffect, useState } from 'react';
 
-function Categories(){
+function NewProduct(){
 
-    const [categories, setCategories] = useState([]);
+    const [product, setProduct] = useState('');
+    const [prod_name, setProd_Name] = useState('');
+    const [category, setCategory] = useState('');
+    const [owner, setOwner] = useState('');
+    const [price, setPrice] = useState('');
+    const [description, setDescription] = useState('');
 
-    function getData(){
-        fetch('http://localhost/ihahire/categories.php')
-        .then((res) => res.text()) 
-        .then(data => {
-            setCategories((JSON.parse(data)))
-        })
+    function sendData(){
+       fetch(`http://localhost/ihahire/newproduct.php?prodname=${prod_name}&category=${category}&owner=${owner}&price=${price}&description=${description}
+        `)
     }
     
-    useEffect(
-        ()=>{
-            getData();
-        }, []
-    )
 
   
 
@@ -79,28 +76,38 @@ function Categories(){
                     </nav>
 
                
-                    <div className="container mt-4">
-                        <h1>Categories </h1>
+                    <div className="container mt-5">
+                        <div>
+                            <h3>New Product </h3>
+                            
+                        </div>
                       
-                        <table className="table">
-                            <tr>
-                                <th>ID</th>
-                                <th>NAME</th>
-                                <th>CREATED DATE</th>
-                            </tr>
+                      <div className="mt-5 row">
+                            <div className="col-2"></div>
+                            <div className="col-6">
+
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h6 className="card-title">Fill all info</h6>
+                                    </div>
+
+                                    <div className="card-body"  >
+
+                                        <input type="text" className="form-control mt-2 py-3 border-info rounded-4 ps-3" placeholder='Product Name' onChange={(e)=>setProd_Name(e.target.value) }/>
+                                        <input type="text" className="form-control mt-2 py-3 border-info rounded-4 ps-3" placeholder='category' onChange={(e)=>setCategory(e.target.value) } />
+                                        <input type="text" className="form-control mt-2 py-3 border-info rounded-4 ps-3" placeholder='owner' onChange={(e)=>setOwner(e.target.value) } />
+                                        <input type="number" className="form-control mt-2 py-3 border-info rounded-4 ps-3" placeholder='Price'  onChange={(e)=>setPrice(e.target.value) } />
+                                        <input type="text" className="form-control mt-2 py-3 border-info rounded-4 ps-3" placeholder='description' onChange={(e)=>setDescription(e.target.value) } />
+                                        
+                                        <button className="btn btn-info mt-5" onClick={()=>sendData()}>SEND</button>
+
+                                    </div>
+                                </div>
                             
-                            {
-                                categories.map((cat, index) => (
-                                        <tr key={index}>
-                                            <td>{cat.id}</td>
-                                            <td>{cat.name}</td>
-                                            <td>{cat.date}</td>
-                                        </tr>
-                                    ))
-                                }
-                            
-                        </table>
-                   
+                            </div>
+                            <div className="col-3"></div>
+                      </div>
+                       
                         
 
                     
@@ -112,4 +119,4 @@ function Categories(){
 );
 }
 
-export default Categories;
+export default NewProduct;
