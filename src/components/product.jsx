@@ -52,7 +52,6 @@ function Product(){
                                     <th>ID</th>
                                     <th>PROD_NAME</th>
                                     <th>CATEGORY</th>
-                                    <th>OWNER</th>
                                     <th>PRICE</th>
                                     <th>description</th>
                                     <th>ACTION</th>
@@ -64,11 +63,10 @@ function Product(){
                                                 <td>{cat.id}</td>
                                                 <td>{cat.prod_name}</td>
                                                 <td>{cat.category}</td>
-                                                <td>{cat.owner}</td>
                                                 <td>{cat.price}</td>
                                                 <td>{cat.description}</td>
                                                 <td>
-                                                    <button className="btn btn-outline-success btn-sm me-1">EDIT</button> 
+                                                    < Link  className="btn btn-outline-success btn-sm me-1" to={'/edit/'+cat.id} >EDIT</Link> 
                                                     <button className="btn btn-outline-danger btn-sm">DELETE</button>
                                                 </td>
 

@@ -3,18 +3,8 @@ import logo from '../images/logo.png';
 import { useEffect, useState } from 'react';
 
 
-function Navbar(){
-    const [user, setUser] = useState('');
+function Navbar(prop){
 
-    const nav = useNavigate();
-
-    useEffect(
-        ()=>{
-        
-            const data = localStorage.getItem('user');
-
-            setUser(JSON.parse(data));
-        })
 
     return(
 
@@ -44,7 +34,7 @@ function Navbar(){
                                 
                     </div>
                                 </ul>
-                                <span className="ms-auto"><i class="bi bi-person-circle"></i>  {user.firstname}  {user.lastname}</span>
+                                <span className="ms-auto"><i className="bi bi-person-circle"></i>  {prop.firstname}  {prop.lastname}</span>
                             </div>
                         </div>
                     </nav>
