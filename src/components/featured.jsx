@@ -13,6 +13,7 @@ function Featured(){
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [show, setShow] = useState(false);
     const [quantity, setQuantity] = useState(1);
+    const[data, setdata]= useState(1); 
 
 
     function getData(){
@@ -50,13 +51,14 @@ function Featured(){
                             <div>Unit price: ${prod.price} rwf</div>
                             <div class='mt-4'><i>Category:</i> ${prod.category} rwf</div>
                             <div>${prod.description} rwf</div>
-                            
+ 
+                        
                             <div class='mt-4'> Order quantity: 
-                                <button class='btn btn-sm btn-danger'>-</button>
-                                <button class='btn btn-sm btn-light'>${quantity}</button>
-                                <button class='btn btn-sm btn-success'>+</button>
-
-                                Total Price: ${prod.price } rwf
+                                <button class='btn btn-sm btn-danger' onClick='{() => setdata (data - 1)}> - </button>
+                                <button class='btn btn-sm btn-light'>${quantity}</button> 
+                                <button class='btn btn-sm btn-success' onClick={() => setdata (data + 1)}> + </button><br/>
+                                
+                                Total Price: ${prod.price * quantity } rwf
                                 
                             </div>
 
@@ -69,11 +71,9 @@ function Featured(){
                 `,
                 showCloseButton: true,
                 showCancelButton: true,
-                focusConfirm: false,
-                confirmButtonText: `
-                  <i class="fa fa-thumbs-up"></i> ADD
-                `,
-                confirmButtonAriaLabel: "Add",
+                focusConfirm: true,
+                confirmButtonText: `ADD`,
+                
                 cancelButtonText: `
                   <i class="fa fa-thumbs-down"></i> Close
                 `,

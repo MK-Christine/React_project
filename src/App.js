@@ -16,6 +16,7 @@ import NewProduct from "./components/newProduct.jsx";
 import Edit from "./components/edit.jsx";
 import '../node_modules/bootstrap/js/dist/modal.js';
 
+
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App () {
@@ -32,6 +33,7 @@ function App () {
         <Route path='/product' element={<Product/>}/>
         <Route path='/newproduct' element={<NewProduct/>}/>
         <Route path='/edit/:id' element={<Edit/>}/>
+       
         <Route path='*' element={<NotFound/>}/>
            
         
